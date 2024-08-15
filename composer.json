@@ -1,5 +1,5 @@
 {
-  "name": "yuan/laravel-log-viewer",
+  "name": "yuanrun/laravel-log-viewer",
   "description": "Laravel Log Viewer",
   "type": "library",
   "keywords": ["laravel", "log viewer"],
@@ -22,7 +22,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Yuan\\LogViewer\\YuanLogViewerServiceProvider"
+        "YuanRun\\LogViewer\\YuanRunLogViewerServiceProvider"
       ]
     }
   }

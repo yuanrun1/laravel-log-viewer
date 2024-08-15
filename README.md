@@ -1,8 +1,8 @@
 <div align="center">
 
-# Yuan Laravel Log Viewer
+# Yuanrun Laravel Log Viewer
 
-`Yuan Log Viewer`是一个`Laravel`日志查看工具，支持大文件日志的查看和搜索功能，更改自[laravel-admin-extensions/log-viewer](https://github.com/laravel-admin-extensions/log-viewer)。
+`Yuanrun Log Viewer`是一个`Laravel`日志查看工具，支持大文件日志的查看和搜索功能，更改自[laravel-admin-extensions/log-viewer](https://github.com/laravel-admin-extensions/log-viewer)。
 
 </div>
 
@@ -26,13 +26,13 @@
 ## 安装
 
 ```bash
-composer require yuan/laravel-log-viewer
+composer require yuanrun/laravel-log-viewer
 ```
 
 发布配置文件，此步骤可省略
 
 ```bash
-php artisan vendor:publish --tag=yuan-log-viewer
+php artisan vendor:publish --tag=yuanrun-log-viewer
 ```
 
 然后访问 `http://hostname/logs` 即可
@@ -46,7 +46,7 @@ return [
         // 路由前缀
         'prefix'     => 'logs',
          // 命名空间
-        'namespace'  => 'Yuan\LogViewer',
+        'namespace'  => 'Yuanrun\LogViewer',
          // 中间件
         'middleware' => [],
     ],

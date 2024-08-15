@@ -14,14 +14,14 @@ class LogController
         $filename = $request->get('filename') ? trim($request->get('filename')) : '';
         $offset   = $request->get('offset');
         $keyword  = $request->get('keyword') ? trim($request->get('keyword')) : '';
-        $lines = $keyword ? (config('yuan-log-viewer.search_page_items') ?: 500) : (config('yuan-log-viewer.page_items') ?: 30);
+        $lines = $keyword ? (config('yuanrun-log-viewer.search_page_items') ?: 500) : (config('yuanrun-log-viewer.page_items') ?: 30);
 
         $viewer = new LogViewer($this->getDirectory(), $dir, $file);
 
         $viewer->setKeyword($keyword);
         $viewer->setFilename($filename);
 
-        return view('yuan-log-viewer::log', [
+        return view('yuanrun-log-viewer::log', [
             'dir'       => $dir,
             'logs'      => $viewer->fetch($offset, $lines),
             'logFiles'  => $this->formatLogFiles($viewer, $dir),
@@ -54,7 +54,7 @@ class LogController
 
     protected function getDirectory()
     {
-        return config('yuan-log-viewer.directory') ?: storage_path('logs');
+        return config('yuanrun-log-viewer.directory') ?: storage_path('logs');
     }
 
     protected function formatLogFiles(LogViewer $logViewer, $currentDir)
@@ -73,7 +73,7 @@ class LogController
 
             return [
                 'file' => $value,
-                'url' => route('yuan-log-viewer.file', ['file' => $file, 'dir' => $dir]),
+                'url' => route('yuanrun-log-viewer.file', ['file' => $file, 'dir' => $dir]),
                 'active' => $logViewer->isCurrentFile($value),
             ];
         }, $logViewer->getLogFiles());

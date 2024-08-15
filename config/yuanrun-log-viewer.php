@@ -3,7 +3,7 @@
 return [
     'route' => [
         'prefix'     => 'logs',
-        'namespace'  => 'Yuan\LogViewer',
+        'namespace'  => 'YuanRun\LogViewer',
         'middleware' => [],
     ],
 

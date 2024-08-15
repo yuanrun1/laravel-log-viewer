@@ -237,19 +237,19 @@
             <div class="">
                 <div class="box-header with-border">
                     <h3 class="box-title"><i class="fa fa-folder-open-o"></i>
-                        <a href="{{ route('dcat-log-viewer') }}">logs</a>
+                        <a href="{{ route('yuanrun-log-viewer') }}">logs</a>
                         @if($dir)
                             @php($tmp = '')
                             @foreach(explode('/', $dir) as $v)
                                 @php($tmp .= '/'.$v)
                                 /
-                                <a href="{{ route('dcat-log-viewer', ['dir' => trim($tmp, '/')])}}">{{ $v }}</a>
+                                <a href="{{ route('yuanrun-log-viewer', ['dir' => trim($tmp, '/')])}}">{{ $v }}</a>
                             @endforeach
                         @endif
                     </h3>
                 </div>
 
-                <form action="{{ route('dcat-log-viewer') }}" style="display: inline-block;width: 220px;padding-left: 15px">
+                <form action="{{ route('yuanrun-log-viewer') }}" style="display: inline-block;width: 220px;padding-left: 15px">
                     <div class="input-group-sm" style="display: inline-block;width: 100%">
                         <input name="filename" class="form-control" value="{{ app('request')->get('filename') }}" type="text" placeholder="Search..." />
                     </div>
@@ -260,7 +260,7 @@
                         @if(! app('request')->get('filename'))
                             @foreach($logDirs as $d)
                                 <li @if($d === $fileName) class="active" @endif>
-                                    <a class="dir" href="{{ route('dcat-log-viewer', ['dir' => $d]) }}">
+                                    <a class="dir" href="{{ route('yuanrun-log-viewer', ['dir' => $d]) }}">
                                         <i class="fa fa-folder-o"></i>{{ basename($d) }}
                                     </a>
                                 </li>
@@ -287,7 +287,7 @@
         <div class="col-md-10">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <a href="{{ route('dcat-log-viewer.download', ['dir' => $dir, 'file' => $fileName, 'filename' => app('request')->get('filename')]) }}" class="btn btn-primary btn-sm download" style="color: #fff"><i class="fa-download fa"></i> {{ trans('Download') }}</a>
+                    <a href="{{ route('yuanrun-log-viewer.download', ['dir' => $dir, 'file' => $fileName, 'filename' => app('request')->get('filename')]) }}" class="btn btn-primary btn-sm download" style="color: #fff"><i class="fa-download fa"></i> {{ trans('Download') }}</a>
 
 {{--                    <button class="btn btn-default btn-sm download"><i class="fa-trash-o fa"></i> {{ trans('Delete') }}</button>--}}
                     &nbsp;
@@ -336,7 +336,7 @@
                             @foreach($logs as $index => $log)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
-                                    <td><span class="label bg-{{\Dcat\LogViewer\LogViewer::$levelColors[$log['level']]}}">{{ $log['level'] }}</span></td>
+                                    <td><span class="label bg-{{\YuanRun\LogViewer\LogViewer::$levelColors[$log['level']]}}">{{ $log['level'] }}</span></td>
                                     <td><strong>{{ $log['env'] }}</strong></td>
                                     <td style="width:150px;">{{ $log['time'] }}</td>
                                     <td><pre>{{ $log['info'] }}</pre></td>
