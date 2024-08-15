@@ -1,0 +1,29 @@
+{
+  "name": "yuan/laravel-log-viewer",
+  "description": "Laravel Log Viewer",
+  "type": "library",
+  "keywords": ["laravel", "log viewer"],
+  "homepage": "https://github.com/yuanrun1/laravel-log-viewer",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "yuanrun",
+      "email": "403384070@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Yuan\\LogViewer\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Yuan\\LogViewer\\YuanLogViewerServiceProvider"
+      ]
+    }
+  }
+}
