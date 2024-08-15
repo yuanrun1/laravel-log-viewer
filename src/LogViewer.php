@@ -1,6 +1,6 @@
 <?php
 
-namespace YuanRun\LogViewer;
+namespace Dcat\LogViewer;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
@@ -237,7 +237,7 @@ class LogViewer
             return false;
         }
 
-        return route('yuanrun-log-viewer.file', [
+        return route('dcat-log-viewer.file', [
             'file' => $this->getFile(),
             'offset' => $this->pageOffset['end'],
             'keyword' => $this->keyword,
@@ -261,7 +261,7 @@ class LogViewer
             return false;
         }
 
-        return route('yuanrun-log-viewer.file', [
+        return route('dcat-log-viewer.file', [
             'file' => $this->getFile(),
             'offset' => -$this->pageOffset['start'],
             'keyword' => $this->keyword,

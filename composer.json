@@ -16,13 +16,13 @@
   },
   "autoload": {
     "psr-4": {
-      "Yuan\\LogViewer\\": "src/"
+      "Dcat\\LogViewer\\": "src/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "YuanRun\\LogViewer\\YuanRunLogViewerServiceProvider"
+        "Dcat\\LogViewer\\DcatLogViewerServiceProvider"
       ]
     }
   }

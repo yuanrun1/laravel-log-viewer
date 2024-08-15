@@ -218,7 +218,7 @@
         }
 
         .nav>li>a.dir {
-            font-size: 1.5rem;
+            font-size: 1rem;
         }
 
     </style>
@@ -231,25 +231,25 @@
 
         <div class="col-md-2">
             <div class="logo">
-                职引log日志
+                Dcat Log Viewer
             </div>
 
             <div class="">
                 <div class="box-header with-border">
                     <h3 class="box-title"><i class="fa fa-folder-open-o"></i>
-                        <a href="{{ route('yuanrun-log-viewer') }}">logs</a>
+                        <a href="{{ route('dcat-log-viewer') }}">logs</a>
                         @if($dir)
                             @php($tmp = '')
                             @foreach(explode('/', $dir) as $v)
                                 @php($tmp .= '/'.$v)
                                 /
-                                <a href="{{ route('yuanrun-log-viewer', ['dir' => trim($tmp, '/')])}}">{{ $v }}</a>
+                                <a href="{{ route('dcat-log-viewer', ['dir' => trim($tmp, '/')])}}">{{ $v }}</a>
                             @endforeach
                         @endif
                     </h3>
                 </div>
 
-                <form action="{{ route('yuanrun-log-viewer') }}" style="display: inline-block;width: 220px;padding-left: 15px">
+                <form action="{{ route('dcat-log-viewer') }}" style="display: inline-block;width: 220px;padding-left: 15px">
                     <div class="input-group-sm" style="display: inline-block;width: 100%">
                         <input name="filename" class="form-control" value="{{ app('request')->get('filename') }}" type="text" placeholder="Search..." />
                     </div>
@@ -260,7 +260,7 @@
                         @if(! app('request')->get('filename'))
                             @foreach($logDirs as $d)
                                 <li @if($d === $fileName) class="active" @endif>
-                                    <a class="dir" href="{{ route('yuanrun-log-viewer', ['dir' => $d]) }}">
+                                    <a class="dir" href="{{ route('dcat-log-viewer', ['dir' => $d]) }}">
                                         <i class="fa fa-folder-o"></i>{{ basename($d) }}
                                     </a>
                                 </li>
@@ -287,7 +287,7 @@
         <div class="col-md-10">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <a href="{{ route('yuanrun-log-viewer.download', ['dir' => $dir, 'file' => $fileName, 'filename' => app('request')->get('filename')]) }}" class="btn btn-primary btn-sm download" style="color: #fff"><i class="fa-download fa"></i> {{ trans('Download') }}</a>
+                    <a href="{{ route('dcat-log-viewer.download', ['dir' => $dir, 'file' => $fileName, 'filename' => app('request')->get('filename')]) }}" class="btn btn-primary btn-sm download" style="color: #fff"><i class="fa-download fa"></i> {{ trans('Download') }}</a>
 
 {{--                    <button class="btn btn-default btn-sm download"><i class="fa-trash-o fa"></i> {{ trans('Delete') }}</button>--}}
                     &nbsp;
@@ -304,10 +304,10 @@
                         &nbsp;
                         <div class="btn-group">
                             @if ($prevUrl)
-                                <a href="{{ $prevUrl }}" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i> 上一页</a>
+                                <a href="{{ $prevUrl }}" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i> Previous</a>
                             @endif
                             @if ($nextUrl)
-                                <a href="{{ $nextUrl }}" class="btn btn-default btn-sm">下一页 <i class="fa fa-chevron-right"></i></a>
+                                <a href="{{ $nextUrl }}" class="btn btn-default btn-sm">Next <i class="fa fa-chevron-right"></i></a>
                             @endif
                         </div>
                         <!-- /.btn-group -->
@@ -336,7 +336,7 @@
                             @foreach($logs as $index => $log)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
-                                    <td><span class="label bg-{{\YuanRun\LogViewer\LogViewer::$levelColors[$log['level']]}}">{{ $log['level'] }}</span></td>
+                                    <td><span class="label bg-{{\Dcat\LogViewer\LogViewer::$levelColors[$log['level']]}}">{{ $log['level'] }}</span></td>
                                     <td><strong>{{ $log['env'] }}</strong></td>
                                     <td style="width:150px;">{{ $log['time'] }}</td>
                                     <td><pre>{{ $log['info'] }}</pre></td>
@@ -364,16 +364,16 @@
                 </div>
                 <div class="box-footer">
                     <div class="float-left">
-                        <a class=""><strong>文件大小:</strong> {{ $size }} &nbsp; <strong>更新于:</strong>
+                        <a class=""><strong>Size:</strong> {{ $size }} &nbsp; <strong>Updated at:</strong>
                             {{ \Carbon\Carbon::create(date('Y-m-d H:i:s', filectime($filePath)))->diffForHumans() }}</a>
                     </div>
                     <div class="float-right">
                         <div class="btn-group">
                             @if ($prevUrl)
-                                <a href="{{ $prevUrl }}" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i>上一页</a>
+                                <a href="{{ $prevUrl }}" class="btn btn-default btn-sm"><i class="fa fa-chevron-left"></i> Previous</a>
                             @endif
                             @if ($nextUrl)
-                                <a href="{{ $nextUrl }}" class="btn btn-default btn-sm">下一页 <i class="fa fa-chevron-right"></i></a>
+                                <a href="{{ $nextUrl }}" class="btn btn-default btn-sm">Next <i class="fa fa-chevron-right"></i></a>
                             @endif
                         </div>
                         <!-- /.btn-group -->
@@ -386,10 +386,13 @@
 
     </div>
 </div>
+
+
 <!-- jQuery -->
 <script src="https://cdn.staticfile.org/jquery/3.1.0/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </body>
 </html>
